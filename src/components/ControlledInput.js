@@ -11,13 +11,18 @@ class Form extends Component {
     firstName: event.target.value
   })
 }
- 
+
 handleLastNameChange = event => {
   this.setState({
     lastName: event.target.value
   })
 }
- 
+handleSubmit = event => {
+  event.preventDefault()
+  const firstName = event.target.children[0].value
+  const lasstName = event.target.children[1].value
+  this.sendFormDataSomewhere({ firstName, lastName })
+}
   render() {
     return (
       <form onSubmit={ event => this.handleSubmit(event) }>
